@@ -7,6 +7,8 @@ a node to the Services tab.  Right click it to add servers.
 You can browse into collections;  responses to queries are browsable as subnodes;  the property sheet
 shows all non-Map, non-List properties (lists and Maps become additional subnodes).
 
+![NetBeans MongoDB Plugin Screen Shot](screenshot.png "NetBeans MongoDB Plugin Screen Shot")
+
 Status
 ------
 
