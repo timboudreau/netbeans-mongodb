@@ -23,8 +23,10 @@
  */
 package com.timboudreau.netbeans.mongodb;
 
+import com.mongodb.DBTCPConnector;
 import static com.timboudreau.netbeans.mongodb.MongoServicesNode.MONGO_ICON;
 import java.awt.event.ActionEvent;
+import java.lang.reflect.Field;
 import java.util.logging.Filter;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -41,6 +43,7 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.nodes.AbstractNode;
 import org.openide.nodes.Children;
+import org.openide.util.Exceptions;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.NbPreferences;
 
@@ -86,15 +89,26 @@ public class MongoServicesNode extends AbstractNode {
         // By default every connection exception will result in a
         // popup dialog.  Try to crank down the volume.
         Logger mongoLogger = Logger.getLogger("com.mongodb");
-        mongoLogger.setLevel(Level.INFO);
-        mongoLogger.setFilter(new Filter() {
-
-            @Override
-            public boolean isLoggable(LogRecord record) {
-                record.setLevel(Level.FINE);
-                return false;
+        mongoLogger.setUseParentHandlers(false);
+        Class<DBTCPConnector> c = DBTCPConnector.class;
+        try {
+            Field field = c.getDeclaredField("_logger");
+            field.setAccessible(true);
+            Logger lggr = (Logger) field.get(null);
+            System.out.println("IT IS THE SAME? " + (lggr == mongoLogger));
+            mongoLogger = lggr;
+            if (mongoLogger != null) {
+                mongoLogger.setUseParentHandlers(false);
             }
-        });
+        } catch (NoSuchFieldException ex) {
+            ex.printStackTrace();
+        } catch (SecurityException ex) {
+            ex.printStackTrace();
+        } catch (IllegalArgumentException ex) {
+            ex.printStackTrace();
+        } catch (IllegalAccessException ex) {
+            ex.printStackTrace();
+        }
     }
 
     static Preferences prefs() {
@@ -138,7 +152,6 @@ public class MongoServicesNode extends AbstractNode {
                     }
                     info.setPort(port);
                     info.setHost(host);
-                    System.out.println("CREATE " + info);
                 } finally {
                     factory.doRefresh();
                 }
