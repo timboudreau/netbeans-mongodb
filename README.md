@@ -13,9 +13,7 @@ shows all non-Map, non-List properties (lists and Maps become additional subnode
 Status
 ------
 
-Stable and works.  One known issue: The MongoDB driver insists on logging connection exceptions as
-``Level.SEVERE`` before the plugin can intercept them.  So currently, you may see some popup 
-exception dialogs - they are harmless.
+Stable and works.
 
 Note that as yet there is no write support, just browsing.
 
