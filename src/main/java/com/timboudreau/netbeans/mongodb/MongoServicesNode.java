@@ -27,9 +27,6 @@ import com.mongodb.DBTCPConnector;
 import static com.timboudreau.netbeans.mongodb.MongoServicesNode.MONGO_ICON;
 import java.awt.event.ActionEvent;
 import java.lang.reflect.Field;
-import java.util.logging.Filter;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import javax.swing.AbstractAction;
@@ -43,7 +40,6 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.nodes.AbstractNode;
 import org.openide.nodes.Children;
-import org.openide.util.Exceptions;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.NbPreferences;
 
