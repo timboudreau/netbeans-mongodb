@@ -23,7 +23,20 @@ Build And Run / Downloads
 
 It's a Maven project built using the NBM Maven Plugin - just check out and build.
 
-A continuous build of it, with download, exists [on timboudreau.com](http://timboudreau.com/builds/job/netbeans-mongodb/).  To install in NetBeans, simply download and install using Tools | Plugins on the Downloaded tab.
+A continuous build of it, with NBM download, 
+is [on timboudreau.com](http://timboudreau.com/builds/job/netbeans-mongodb/).
+To install in NetBeans, simply download and install using Tools | Plugins on the Downloaded tab.
+
+
+To-Dos
+------
+
+ * Authentication, storing passwords using keyring api
+ * Refresh action on collections and other nodes
+ * Write support
+   * Write support for properties
+   * Custom queries
+   * Add/remove collection, item, database
 
 
 License
