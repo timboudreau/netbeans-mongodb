@@ -4,15 +4,16 @@
 
     <groupId>com.timboudreau</groupId>
     <artifactId>netbeans-mongodb</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <packaging>nbm</packaging>
 
-    <name>netbeans-mongodb</name>
+    <name>Netbeans MongoDB</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <netbeans.hint.license>mit</netbeans.hint.license>
         <netbeans.version>RELEASE731</netbeans.version>
+        <project.build.nbmName>nb-nodejs</project.build.nbmName>
     </properties>
 
     <repositories>
@@ -112,4 +113,9 @@
             </plugin>
         </plugins>
     </build>
+    <description>Supports browsing, querying and interacting 
+with &lt;a href="http://mongodb.org"&gt;MongoDB&lt;/a&gt; much
+the same way traditional databases are 
+supported in NetBeans, in the Services tab.
+</description>
 </project>

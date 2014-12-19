@@ -4,6 +4,8 @@
 *.jar
 *.war
 *.ear
+*.orig
+*~
 build/
 target/
 .DS_Store
